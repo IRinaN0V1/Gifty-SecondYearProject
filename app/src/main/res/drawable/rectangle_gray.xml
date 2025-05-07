@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Основной черный фон -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#464343"/>
+            <corners android:radius="40dp"/>
+        </shape>
+    </item>
+
+    <item android:top="0dp" android:bottom="500dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/pink"/>
+            <corners android:topLeftRadius="40dp" android:topRightRadius="40dp"/>
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,45 @@
+[versions]
+agp = "8.8.1"
+kotlin = "1.9.24"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.10.0"
+constraintlayout = "2.2.0"
+hiltVersion = "2.46.1"
+kaptVersion = "1.9.24"
+retrofitVersion = "2.9.0"
+navigationFragmentKtx = "2.8.9"
+navigationUiKtx = "2.8.9"
+materialCalendarViewVersion = "1.9.2"
+glideVersion = "4.12.0"
+uiGraphicsAndroid = "1.8.0"
+
+[libraries]
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glideVersion" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glideVersion" }
+material-calendar-view = { module = "com.applandeo:material-calendar-view", version.ref = "materialCalendarViewVersion" }
+hilt-android = {module = "com.google.dagger:hilt-android", version.ref = "hiltVersion"}
+hilt-android-compiler = {module = "com.google.dagger:hilt-compiler", version.ref = "hiltVersion"}
+retrofit-android = {module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion"}
+retrofit-android-converter = {module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion"}
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-ui-graphics-android = { group = "androidx.compose.ui", name = "ui-graphics-android", version.ref = "uiGraphicsAndroid" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kaptVersion" }
+hiltCompiler = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
