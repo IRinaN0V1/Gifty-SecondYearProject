@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".NewFormActivity">
+    tools:context=".Activities.NewFormActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -20,6 +20,7 @@
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/addPhotoButton"

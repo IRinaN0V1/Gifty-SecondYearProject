@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ParametersSearchActivity">
+    tools:context=".Activities.ParametersSearchActivity">
 
     <TextView
         android:id="@+id/param_search_text"

@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -42,11 +44,14 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.ui.graphics.android)
+    implementation(libs.core.ktx)
+    testImplementation(libs.testng)
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
     implementation(libs.retrofit.android)
     implementation(libs.retrofit.android.converter)
     implementation(libs.glide)
+    implementation(libs.ucrop)
     kapt(libs.glide.compiler)
 
     implementation(libs.androidx.core.ktx)
@@ -55,6 +60,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
+    testImplementation (libs.mockk)
+    testImplementation (libs.core.testing)
+    testImplementation (libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.mockk)
 }

@@ -6,12 +6,14 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 interface Api {
     @FormUrlEncoded
     @POST("Api.php?apicall=getuser")
     suspend fun getUser(@Field("email") email: String, @Field("password") password: String): Response<JsonObject>
+
+    @GET("Api.php?apicall=gethobbies")
+    suspend fun getHobbies(): Response<JsonObject>
 
     @FormUrlEncoded
     @POST("Api.php?apicall=getuserbyemail")
@@ -27,21 +29,22 @@ interface Api {
 
     @FormUrlEncoded
     @POST("Api.php?apicall=createform")
-    suspend fun createForm(@Field("name") name: String, @Field("image") image: String
+    suspend fun createForm(@Field("name") name: String, @Field("image") image: String?
                            , @Field("birthday_date") birthday_date: String, @Field("user") user_id: Int): Response<JsonObject>
 
     @FormUrlEncoded
     @POST("Api.php?apicall=createevent")
     suspend fun createEvent( @Field("user") user: Int, @Field("name") name: String, @Field("reminder_time") reminder_time: String
-                           , @Field("description") description: String, @Field("event_date") event_date: String,): Response<JsonObject>
+                           , @Field("description") description: String, @Field("event_date") event_date: String): Response<JsonObject>
 
     @FormUrlEncoded
     @POST("Api.php?apicall=getformsbyuserid")
     suspend fun getFormsByUserId(@Field("user") user_id: Int): Response<JsonObject>
 
-    @GET("Api.php?apicall=deleteform")
+    @FormUrlEncoded
+    @POST("Api.php?apicall=deleteform")
     suspend fun deleteForm(
-        @Query("id") name: Int
+        @Field("id") name: Int
     ): Response<JsonObject>
 
     @FormUrlEncoded
@@ -49,16 +52,18 @@ interface Api {
     suspend fun updateForm(
         @Field("id") id: Int,
         @Field("name") name: String,
-        @Field("birthday_date") birthday_date: String
+        @Field("birthday_date") birthday_date: String,
+        @Field("image") image: String
     ): Response<JsonObject>
 
     @FormUrlEncoded
     @POST("Api.php?apicall=geteventsbyuserid")
     suspend fun getEventsByUserId(@Field("user") user_id: Int): Response<JsonObject>
 
-    @GET("Api.php?apicall=deleteevent")
+    @FormUrlEncoded
+    @POST("Api.php?apicall=deleteevent")
     suspend fun deleteEvent(
-        @Query("id") id: Int
+        @Field("id") id: Int
     ): Response<JsonObject>
 
     @FormUrlEncoded
@@ -76,9 +81,6 @@ interface Api {
 
     @GET("Api.php?apicall=getgifts")
     suspend fun getGifts(): Response<JsonObject>
-
-    @GET("Api.php?apicall=gethobbies")
-    suspend fun getHobbies(): Response<JsonObject>
 
     @GET("Api.php?apicall=getholidays")
     suspend fun getHolidays(): Response<JsonObject>
@@ -116,7 +118,7 @@ interface Api {
     @FormUrlEncoded
     @POST("Api.php?apicall=getfoundgifts")
     suspend fun getFoundGifts(
-        @Field("genderId") genderId: Int,
+        @Field("genders") genderId: String,
         @Field("ageCategoryId") ageCategoryId: Int,
         @Field("hobbies") hobbies: String,
         @Field("professions") professions: String,
@@ -139,5 +141,23 @@ interface Api {
         @Field("id") id: Int,
         @Field("password") password: String
     ): Response<JsonObject>
+
+
+    @GET("Api.php?apicall=deleteallusers")
+    suspend fun deleteAllUsers(): Response<JsonObject>
+
+    @GET("Api.php?apicall=deleteallforms")
+    suspend fun deleteAllForms(): Response<JsonObject>
+
+    @GET("Api.php?apicall=deleteallevents")
+    suspend fun deleteAllEvents(): Response<JsonObject>
+
+    @GET("Api.php?apicall=deleteallselectedgifts")
+    suspend fun deleteAllSelectedGifts(): Response<JsonObject>
+
+    @FormUrlEncoded
+    @POST("Api.php?apicall=getformid")
+    suspend fun getFormId(@Field("name") name: String, @Field("user") user_id: Int): Response<JsonObject>
+
 }
 

@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         // Инициализация нижней навигационной панели
         btnNavView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
         val controller = findNavController(R.id.fragmentContainerView)
-
         btnNavView.setupWithNavController(controller)
         btnNavView.setOnNavigationItemSelectedListener { item ->
             val navOptions = NavOptions.Builder()
@@ -36,7 +34,6 @@ class MainActivity : AppCompatActivity() {
                 .setPopEnterAnim(0)
                 .setPopExitAnim(0)
                 .build()
-
             when (item.itemId) {
                 R.id.calendarFragment -> {
                     controller.navigate(R.id.calendarFragment, null, navOptions)

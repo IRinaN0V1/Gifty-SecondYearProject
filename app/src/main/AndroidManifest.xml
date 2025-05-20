@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
         android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -23,53 +25,66 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <activity
+            android:name=".Activities.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".MyAccountActivity"
+            android:name=".Activities.MyAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Activities.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".FoundGiftsActivity"
+            android:name=".Activities.FoundGiftsActivity"
             android:exported="false" />
         <activity
-            android:name=".ReportSettingsActivity"
+            android:name=".Activities.ReportSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ChoseFormActivity"
+            android:name=".Activities.ChoseFormActivity"
             android:exported="false" />
         <activity
-            android:name=".CategoryActivity"
+            android:name=".Activities.CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".GiftActivity"
+            android:name=".Activities.GiftActivity"
             android:exported="false" />
         <activity
-            android:name=".EventActivity"
+            android:name=".Activities.EventActivity"
             android:exported="false" />
         <activity
-            android:name=".NewEventActivity"
+            android:name=".Activities.NewEventActivity"
             android:exported="false" />
         <activity
-            android:name=".FormActivity"
+            android:name=".Activities.FormActivity"
             android:exported="false" />
         <activity
-            android:name=".ParametersSearchActivity"
+            android:name=".Activities.ParametersSearchActivity"
             android:exported="false" />
         <activity
-            android:name=".NewFormActivity"
+            android:name=".Activities.NewFormActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".Activities.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -79,7 +94,7 @@
         </activity>
 
         <receiver
-            android:name=".EventNotificationReceiver"
+            android:name=".Adapters.EventNotificationReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.ACTION_EVENT_NOTIFICATION" />
